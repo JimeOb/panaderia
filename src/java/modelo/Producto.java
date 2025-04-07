@@ -4,6 +4,7 @@ import src.java.excepciones.CostoInvalidoException;
 import src.java.excepciones.ValorNegativoException;
 
 public abstract class Producto {
+    protected int idProducto;
     protected String nombre;
     protected double precioVenta;
     protected double costoProduccion;
@@ -11,6 +12,7 @@ public abstract class Producto {
 
     public Producto(String nombre, double precioVenta, double costoProduccion, int cantidad)
             throws CostoInvalidoException, ValorNegativoException {
+        // Ejemplo de validación: valores no negativos y costo no mayor que precio
         if (precioVenta < 0 || costoProduccion < 0 || cantidad < 0) {
             throw new ValorNegativoException("Los valores no pueden ser negativos.");
         }
@@ -21,6 +23,15 @@ public abstract class Producto {
         this.precioVenta = precioVenta;
         this.costoProduccion = costoProduccion;
         this.cantidad = cantidad;
+    }
+
+    // Getters y setters
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
@@ -38,14 +49,5 @@ public abstract class Producto {
     public int getCantidad() {
         return cantidad;
     }
-
-    @Override
-    public String toString() {
-        return "Producto{" +
-                "nombre='" + nombre + '\'' +
-                ", precioVenta=" + precioVenta +
-                ", costoProduccion=" + costoProduccion +
-                ", cantidad=" + cantidad +
-                '}';
-    }
 }
+

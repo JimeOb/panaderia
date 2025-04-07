@@ -1,0 +1,14 @@
+{
+    "java.project.sourcePaths": [
+        "."
+    ],
+    "java.project.referencedLibraries": [
+        "src\\java\\lib\\sqljdbc_12.10\\enu\\jars\\mssql-jdbc-12.10.0.jre8.jar",
+        "src\\java\\lib\\sqljdbc_12.10\\enu\\jars\\mssql-jdbc-12.10.0.jre8-javadoc.jar",
+        "src\\java\\lib\\sqljdbc_12.10\\enu\\jars\\mssql-jdbc-12.10.0.jre8-sources.jar",
+        "src\\java\\lib\\sqljdbc_12.10\\enu\\jars\\mssql-jdbc-12.10.0.jre11.jar",
+        "src\\java\\lib\\sqljdbc_12.10\\enu\\jars\\mssql-jdbc-12.10.0.jre11-javadoc.jar",
+        "src\\java\\lib\\sqljdbc_12.10\\enu\\jars\\mssql-jdbc-12.10.0.jre11-sources.jar",
+        "c:\\Users\\USER NODO\\panaderia\\panaderia\\src\\java\\lib\\mysql-connector-j-9.2.0\\mysql-connector-j-9.2.0\\mysql-connector-j-9.2.0.jar"
+    ]
+}

@@ -8,9 +8,9 @@ public class DatabaseConnection {
     private static DatabaseConnection instance;
     private Connection connection;
 
-    private final String url = "jdbc:mysql://localhost:3306/panaderia"; // Ajusta según tu BD
-    private final String username = "usuario"; // Ajusta según tu BD
-    private final String password = "password"; // Ajusta según tu BD
+    private final String url = "jdbc:mysql://localhost:3306/mydb"; // Ajusta según tu BD
+    private final String username = "root"; // Ajusta según tu BD
+    private final String password = "12345"; // Ajusta según tu BD
 
     private DatabaseConnection() throws SQLException {
         try {
