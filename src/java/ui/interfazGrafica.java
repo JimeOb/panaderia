@@ -256,6 +256,7 @@ public class interfazGrafica {
         }
         return null;
     }
+    
 
     public void iniciar() {
         frame.setVisible(true);
