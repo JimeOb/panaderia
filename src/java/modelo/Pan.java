@@ -19,10 +19,11 @@ public class Pan extends Producto {
     @Override
     public String toString() {
         return "Pan{" +
-                "nombre='" + nombre + '\'' +
+                "idProducto=" + idProducto +
+                ", nombre='" + nombre + '\'' +
+                ", cantidad=" + cantidad +
                 ", precioVenta=" + precioVenta +
                 ", costoProduccion=" + costoProduccion +
-                ", cantidad=" + cantidad +
                 ", tieneQueso=" + tieneQueso +
                 '}';
     }

@@ -6,8 +6,7 @@ import src.java.excepciones.ValorNegativoException;
 public class Galleta extends Producto {
     private boolean tieneChispasChocolate;
 
-    public Galleta(String nombre, double precioVenta, double costoProduccion, int cantidad,
-            boolean tieneChispasChocolate)
+    public Galleta(String nombre, double precioVenta, double costoProduccion, int cantidad, boolean tieneChispasChocolate)
             throws CostoInvalidoException, ValorNegativoException {
         super(nombre, precioVenta, costoProduccion, cantidad);
         this.tieneChispasChocolate = tieneChispasChocolate;
@@ -20,10 +19,11 @@ public class Galleta extends Producto {
     @Override
     public String toString() {
         return "Galleta{" +
-                "nombre='" + nombre + '\'' +
+                "idProducto=" + idProducto +
+                ", nombre='" + nombre + '\'' +
+                ", cantidad=" + cantidad +
                 ", precioVenta=" + precioVenta +
                 ", costoProduccion=" + costoProduccion +
-                ", cantidad=" + cantidad +
                 ", tieneChispasChocolate=" + tieneChispasChocolate +
                 '}';
     }

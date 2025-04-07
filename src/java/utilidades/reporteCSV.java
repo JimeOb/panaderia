@@ -1,30 +1,40 @@
 package src.java.utilidades;
 
 import src.java.modelo.Producto;
-import src.java.modelo.Pan;
-import src.java.modelo.Galleta;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
 public class reporteCSV {
-    public static void generarReporteCSV(List<Producto> productos, String rutaArchivo) {
-        try (FileWriter writer = new FileWriter(rutaArchivo)) {
-            // Encabezados del CSV
-            writer.append("Nombre,PrecioVenta,CostoProduccion,Cantidad,Detalle\n");
+    public static void generarReporteCSV(List<Producto> productos, String nombreArchivo) {
+        try (FileWriter writer = new FileWriter(nombreArchivo)) {
+            // Escribe la cabecera del CSV
+            writer.append("ID,Nombre,Cantidad,PrecioVenta,CostoProduccion,Caracteristica\n");
+            
+            // Recorre la lista de productos y escribe cada uno en el CSV
             for (Producto p : productos) {
-                String detalle = "";
-                if (p instanceof Pan) {
-                    detalle = "Tiene queso: " + ((Pan) p).isTieneQueso();
-                } else if (p instanceof Galleta) {
-                    detalle = "Tiene chispas de chocolate: " + ((Galleta) p).isTieneChispasChocolate();
+                writer.append(String.valueOf(p.getIdProducto())).append(",");
+                writer.append(p.getNombre()).append(",");
+                writer.append(String.valueOf(p.getCantidad())).append(",");
+                writer.append(String.valueOf(p.getPrecioVenta())).append(",");
+                writer.append(String.valueOf(p.getCostoProduccion())).append(",");
+                
+                // Según el tipo de producto, agrega la característica correspondiente
+                if (p instanceof src.java.modelo.Pan) {
+                    src.java.modelo.Pan pan = (src.java.modelo.Pan) p;
+                    writer.append("tieneQueso=").append(String.valueOf(pan.isTieneQueso()));
+                } else if (p instanceof src.java.modelo.Galleta) {
+                    src.java.modelo.Galleta galleta = (src.java.modelo.Galleta) p;
+                    writer.append("tieneChispasChocolate=").append(String.valueOf(galleta.isTieneChispasChocolate()));
+                } else {
+                    writer.append("");
                 }
-                writer.append(String.format("%s,%.2f,%.2f,%d,%s\n",
-                        p.getNombre(), p.getPrecioVenta(), p.getCostoProduccion(), p.getCantidad(), detalle));
+                writer.append("\n");
             }
             writer.flush();
         } catch (IOException e) {
-            System.err.println("Error al generar el reporte CSV: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
+
