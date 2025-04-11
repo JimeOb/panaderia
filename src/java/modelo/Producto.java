@@ -12,7 +12,6 @@ public abstract class Producto {
 
     public Producto(String nombre, double precioVenta, double costoProduccion, int cantidad)
             throws CostoInvalidoException, ValorNegativoException {
-        // Ejemplo de validación: valores no negativos y costo no mayor que precio
         if (precioVenta < 0 || costoProduccion < 0 || cantidad < 0) {
             throw new ValorNegativoException("Los valores no pueden ser negativos.");
         }
@@ -25,7 +24,6 @@ public abstract class Producto {
         this.cantidad = cantidad;
     }
 
-    // Getters y setters
     public int getIdProducto() {
         return idProducto;
     }

@@ -9,6 +9,16 @@ public class Galleta extends Producto {
     public Galleta(String nombre, double precioVenta, double costoProduccion, int cantidad, boolean tieneChispasChocolate)
             throws CostoInvalidoException, ValorNegativoException {
         super(nombre, precioVenta, costoProduccion, cantidad);
+        
+        if (costoProduccion > precioVenta) {
+            throw new CostoInvalidoException("El costo de producción (" + costoProduccion +
+                    ") no puede ser mayor que el precio de venta (" + precioVenta + ").");
+        }
+        
+        if (precioVenta < 0 || costoProduccion < 0 || cantidad < 0) {
+            throw new ValorNegativoException("Los valores de precio, costo o cantidad no pueden ser negativos.");
+        }
+        
         this.tieneChispasChocolate = tieneChispasChocolate;
     }
 
